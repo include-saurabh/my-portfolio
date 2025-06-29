@@ -1,0 +1,247 @@
+/* --- Global Styles & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #e0e0e0;
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+    
+    /* --- MODIFICATION 1: The New Background with an Overlay --- */
+    background-color: #0c0a1a; /* A fallback color from the image's dark sky */
+
+    /* The magic is here: we apply a semi-transparent gradient OVER the image */
+    background: linear-gradient(rgba(15, 12, 41, 0.4), rgba(15, 12, 41, 0.4)), url('illustration-anime-city.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This is key for the frosted effect */
+    /* --- END OF MODIFICATION --- */
+}
+
+a {
+    color: #a78bfa; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #c4b5fd;
+}
+
+/* --- Main Layout Container --- */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* --- Header & Contact Info --- */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: #fff;
+
+    /* --- MODIFICATION 2: Add a shadow to lift text off the background --- */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    /* --- END OF MODIFICATION --- */
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    font-size: 0.95rem;
+    color: #c5c5c5;
+    /* --- MODIFICATION 3: Add a subtle shadow to contact info as well --- */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    /* --- END OF MODIFICATION --- */
+}
+
+.contact-info i {
+    margin-right: 8px;
+    color: #a78bfa;
+}
+
+/* --- Glassmorphism Card Style --- */
+.card {
+    /* --- MODIFICATION 4: Refined Card Background --- */
+    /* We make the background a bit darker and more opaque */
+    background: rgba(22, 22, 36, 0.25); /* Was rgba(255, 255, 255, 0.08) */
+    /* --- END OF MODIFICATION --- */
+
+    backdrop-filter: blur(12px); /* Slightly reduced blur can look sharper */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(15, 12, 41, 0.37);
+    padding: 30px;
+    margin-bottom: 2rem;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 12px 45px 0 rgba(15, 12, 41, 0.5);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 2px solid #a78bfa;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.card h2 i {
+    margin-right: 12px;
+}
+
+/* --- Entry Styles (for jobs, education, etc.) --- */
+.entry {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card .entry:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.entry h3 {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    font-weight: 600;
+}
+
+.entry h3 .fa-external-link-alt {
+    font-size: 0.9rem;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.institution {
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 8px;
+}
+
+.date {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    font-weight: 300;
+}
+
+.entry p {
+    margin-bottom: 5px;
+}
+
+.entry ul {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.entry ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.entry ul li::before {
+    content: '•';
+    position: absolute;
+    left: -20px;
+    color: #a78bfa;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* --- Skills Grid --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-category h4 {
+    font-size: 1rem;
+    color: #e0e0e0;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.skill-category p {
+    font-size: 0.95rem;
+    color: #c5c5c5;
+}
+
+/* --- Styles for Scroll Animation --- */
+.hidden-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #a0a0a0; /* made slightly lighter for visibility */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date {
+        margin-top: 5px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
